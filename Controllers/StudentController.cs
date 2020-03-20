@@ -68,8 +68,8 @@ namespace MVCRegistationForm.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            //try
-            //{
+            try
+            {
                 StudentBAL stdbal =new StudentBAL();
                 stdbal.UpdateBL(new StudentDTO
                 {
@@ -84,11 +84,11 @@ namespace MVCRegistationForm.Controllers
                 });
 
                 return RedirectToAction("Index");
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Student/Delete/5

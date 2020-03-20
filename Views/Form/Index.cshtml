@@ -1,0 +1,138 @@
+﻿@model MVCRegistationForm.ViewModels.FormIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Student Registration Form</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.studentDto.StudentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentDto.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentDto.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentDto.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentDto.EmailID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentDto.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentDto.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentDto.Country)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.ListStudentDto)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr/>
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentDto.StudentID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.studentDto.StudentID, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentDto.FirstName, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.studentDto.FirstName, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentDto.LastName, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.studentDto.LastName, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentDto.PhoneNumber, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.studentDto.PhoneNumber, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentDto.EmailID, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.studentDto.EmailID, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentDto.Gender, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.studentDto.Gender, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentDto.State, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.studentDto.State, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentDto.Country, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.studentDto.Country, new {htmlAttributes = new {@class = "form-control"}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" formaction="Form/Create" formmethod="Post" />
+                <input type="submit" value="Update" class="btn btn-success" formaction="Form/Update" formmethod="Post" />
+                <input type="submit" value="Delete" class="btn btn-danger" formaction="Form/Delete" formmethod="Post" />
+            </div>
+        </div>
+    </div>
+}
